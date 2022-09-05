@@ -1,0 +1,135 @@
+@import url("styleReset.css");
+
+:root {
+    --smPadding: 10px;
+    --medPadding: 25px;
+    --lgPadding: 50px;
+
+    --mainColor: lightblue;
+
+    --lightColor: #f3f3f3;
+    --darkColor: #222;
+    --accentColor1: orange;
+    --accentColor2: lightblue;
+    --accentColor3: grey;
+
+    --fontLight: white;
+    --fontDark: black;
+
+    --smRound: 10px;
+    --medRound: 25px;
+    --lgRound: 50px;
+    
+    --smBorder: 1px;
+    --medBorder: 2px;
+    --lgBorder: 3px;
+
+    --roundTopBottomRightBorder: 0% var(--roundBorder) var(--roundBorder) 0%;;
+    --circleBorder: 50%;
+
+    --shadowBox1: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+html, body {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    background-color: var(--mainColor);
+}
+
+#pageHeader {
+    height:fit-content;
+    background-color: gray;
+    padding: var(--smPadding);
+    display: flex;
+    flex-direction: row;
+    gap: var(--medPadding);
+    align-items: center;
+    justify-content: center;
+    border-bottom: var(--medBorder) solid green;
+}
+
+#pageHeader > h1 {
+    margin-right: auto;
+}
+
+#pageHeader > #middle {
+    align-self: flex-end;
+    text-align: center;
+}
+
+#pageContent {
+    height: fit-content;
+    border-radius: var(--medRound);
+    margin: var(--smPadding);
+    padding: var(--lgPadding);
+    background-color: red;
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    gap: 0px;
+}
+
+#pageContent > #leftPanel {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+#pageContent > #leftPanel > * {
+    margin: var(--smPadding);
+}
+
+#pageContent > #middlePanel {
+    background-color: purple;
+}
+
+#pageContent > #rightPanel {
+    background-color: green;
+}
+
+#pageContent > .panel > * > *:hover{
+    background-color: purple;
+    cursor: pointer;
+}
+
+
+.profileImg {
+    height: 64px;
+    width: auto;
+    border-radius: var(--circleBorder);
+}
+
+.frostedGlassBackground {
+    backdrop-filter: blur(20px);
+    background-color: rgba(255,255,255,0.5);
+}
+
+
+h1 {
+    font-size: clamp(1.6rem, -0.875rem + 2vw, 3rem);
+}
+
+h2 {
+    font-size: clamp(1.4rem, -0.875rem + 2vw, 2.4rem);
+}
+
+h3 {
+    font-size: clamp(1.1rem, -0.875rem + 2vw, 2.1rem);
+}
+
+
+h4 {
+    font-size: clamp(1rem, -0.875rem + 2vw, 2rem);
+}
+
+h5 {
+    font-size: clamp(0.9rem, -0.875rem + 2vw, 1.8rem);
+}
+
+h6 {
+    font-size: clamp(0.8rem, -0.875rem + 2vw, 1.6rem);
+}
