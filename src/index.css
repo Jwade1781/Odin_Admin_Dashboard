@@ -1,16 +1,17 @@
 @import url("styleReset.css");
 
 :root {
+    --xSmPadding:5px;
     --smPadding: 10px;
     --medPadding: 25px;
     --lgPadding: 50px;
 
-    --mainColor: lightblue;
-
+    --mainColor: rgb(126,203,203);
+    
     --lightColor: #f3f3f3;
     --darkColor: #222;
-    --accentColor1: orange;
-    --accentColor2: lightblue;
+    --accentColor1: rgb(201,238,234);
+    --accentColor2: rgb(160, 184, 192);
     --accentColor3: grey;
 
     --fontLight: white;
@@ -24,7 +25,8 @@
     --medBorder: 2px;
     --lgBorder: 3px;
 
-    --roundTopBottomRightBorder: 0% var(--roundBorder) var(--roundBorder) 0%;;
+    --roundTopBottomRightBorder: 0% var(--medRound) var(--medRound) 0%;
+    --roundBorder: var(--medRound);
     --circleBorder: 50%;
 
     --shadowBox1: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
@@ -47,41 +49,88 @@ body {
     padding: var(--smPadding);
     display: flex;
     flex-direction: row;
-    gap: var(--medPadding);
-    align-items: center;
     justify-content: center;
     border-bottom: var(--medBorder) solid green;
 }
 
-#pageHeader > h1 {
-    margin-right: auto;
+#pageHeader > #middle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--medPadding);
 }
 
-#pageHeader > #middle {
-    align-self: flex-end;
-    text-align: center;
+#pageHeader > #middle > div, #pageHeader > #middle > h2 {
+    display: flex;
+    flex-direction: row;
+    align-items:flex-end;
 }
 
 #pageContent {
     height: fit-content;
     border-radius: var(--medRound);
     margin: var(--smPadding);
-    padding: var(--lgPadding);
-    background-color: red;
+    padding: var(--smPadding);
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
-    gap: 0px;
+    gap: var(--xSmPadding);
+}
+
+.panel {
+    border-radius: var(--roundBorder);
+    padding: var(--medPadding);
+    height: fit-content;
 }
 
 #pageContent > #leftPanel {
+    background-color: rgb(54,55,64);
+    color: var(--lightColor);
     display: flex;
     flex-direction: column;
-    width: fit-content;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
-#pageContent > #leftPanel > * {
+#pageContent > #leftPanel > div > div {
+    margin: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#pageContent > #leftPanel > div > div > *{
     margin: var(--smPadding);
 }
+
+#pageContent > #leftPanel > div > div > h4 {
+}
+
+
+
+
+#pageContent > #leftPanel > #leftPanelTop {
+    border-bottom: var(--medBorder) solid var(--accentColor1);
+    width: 100%;
+    padding-bottom: var(--smPadding);
+}
+
+#pageContent > #leftPanel > #leftPanelBottom {
+    padding-top: var(--smPadding);
+    border-top: var(--medBorder) solid var(--accentColor1);
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pageContent > #middlePanel {
     background-color: purple;
@@ -91,11 +140,24 @@ body {
     background-color: green;
 }
 
-#pageContent > .panel > * > *:hover{
-    background-color: purple;
+#pageContent > #leftPanel > * > *:hover{
+    color: grey;
     cursor: pointer;
 }
 
+.icon {
+    height: clamp(1rem, -0.875rem + 2vw, 2rem);
+    width: auto;
+}
+
+.panel > * > * {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+}
 
 .profileImg {
     height: 64px;
@@ -105,7 +167,7 @@ body {
 
 .frostedGlassBackground {
     backdrop-filter: blur(20px);
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(201,238,234, 0.8);
 }
 
 
