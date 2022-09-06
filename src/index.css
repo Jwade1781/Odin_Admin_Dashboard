@@ -12,7 +12,7 @@
     --darkColor: #222;
     --accentColor1: rgb(201,238,234);
     --accentColor2: rgb(160, 184, 192);
-    --accentColor3: grey;
+    --accentColor3: rgb(54,55,64);
 
     --fontLight: white;
     --fontDark: black;
@@ -71,6 +71,9 @@ body {
     border-radius: var(--medRound);
     margin: var(--smPadding);
     padding: var(--smPadding);
+    /*display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;*/
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
     gap: var(--xSmPadding);
@@ -83,7 +86,7 @@ body {
 }
 
 #pageContent > #leftPanel {
-    background-color: rgb(54,55,64);
+    background-color: var(--accentColor3);
     color: var(--lightColor);
     display: flex;
     flex-direction: column;
@@ -126,15 +129,61 @@ body {
 
 
 
-
-
-
-
-
-
 #pageContent > #middlePanel {
-    background-color: purple;
+    background-color: var(--darkColor);
+    color: var(--fontLight);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
+#pageContent > #middlePanel > #projectHeader {
+    margin: 0px;
+    padding: 0px;
+}
+#pageContent > #middlePanel > #projectHeader > #sort > *{
+    padding-left: var(--smPadding);
+}
+
+#pageContent > #middlePanel > #projects {
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-rows: repeat(auto-fit, 1fr);
+    display: grid;
+    resize: both;
+    overflow: auto;
+    gap: var(--medPadding);
+}
+
+#pageContent > #middlePanel > #projects > .project {
+    display: flex;
+    flex-direction: column;
+    background-color: ;
+    border-radius: var(--roundBorder);
+    padding: var(--lgPadding);
+    color: var(--fontDark);
+    background-color: var(--lightColor);
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: auto;
+}
+
+#pageContent > #middlePanel > #projects > .project:hover{
+    border-left: var(--lgBorder) solid var(--mainColor);
+    background-color: var(--accentColor1);
+    cursor: pointer;
+}
+
+#pageContent > #middlePanel > #projects > .project > h5 {
+    padding: var(--smPadding);
+    margin: 0px;
+}
+#pageContent > #middlePanel > #projects > .project > img{
+    width: calc(100% - 2*(var(--smPadding)));
+    height: auto;
+    margin: var(--smPadding);
+}
+
 
 #pageContent > #rightPanel {
     background-color: green;
@@ -167,7 +216,10 @@ body {
 
 .frostedGlassBackground {
     backdrop-filter: blur(20px);
-    background-color: rgba(201,238,234, 0.8);
+    /*background-color: rgba(201,238,234, 0.8);*/
+    background-color: rgba(255,255,255,0.5);
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255,255,255,0.3);
 }
 
 
@@ -189,9 +241,9 @@ h4 {
 }
 
 h5 {
-    font-size: clamp(0.9rem, -0.875rem + 2vw, 1.8rem);
+    font-size: clamp(0.9rem, -0.875rem + 2vw, 1.3rem);
 }
 
 h6 {
-    font-size: clamp(0.8rem, -0.875rem + 2vw, 1.6rem);
+    font-size: clamp(0.7rem, -0.875rem + 2vw, 0.9rem);
 }
