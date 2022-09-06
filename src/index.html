@@ -16,10 +16,6 @@
         <div id="middle">
             <img src="../data/Images/icons/githubLogo.svg" class="profileImg">
             <h2 id="welcome">Welcome Back, John</h2>
-            <div>
-                <input area="text" placeholder="Quick Search 🔎">
-                <button type="submit">Search</button>
-            </div>
         </div>
     </div>
     <div id="pageContent" class="frostedGlassBackground">
@@ -29,20 +25,20 @@
             </div>
 
             <div id="leftPanelMiddle">
-                <div><img src="../data/Images/icons/home.png" class="icon">
+                <div class="active"><img src="../data/Images/icons/home.png" class="icon">
                     <h4>Home</h4>
                 </div>
                 <div><img class="icon" src="../data/Images/icons/profile.png">
                     <h4>Profile</h4>
                 </div>
                 <div><img class="icon" src="../data/Images/icons/message.png">
-                    <h4>Messages</h4>
+                    <h4>Messages (6)</h4>
                 </div>
                 <div><img class="icon" src="../data/Images/icons/history.png">
                     <h4>History</h4>
                 </div>
                 <div><img class="icon" src="../data/Images/icons/tasks.png">
-                    <h4>Tasks</h4>
+                    <h4>Tasks (2)</h4>
                 </div>
                 <div><img class="icon" src="../data/Images/icons/communities.png">
                     <h4>Communities</h4>
@@ -66,11 +62,15 @@
 
         <div id="middlePanel" class="panel">
             <div id="projectHeader">
-                <h2>Projects</h2>
+                <h2>My Projects</h2>
                 <div id="sort">
                     <h6>Recent</h6>
                     <h6>Popular</h6>
                     <h6>Most Liked</h6>
+                    <div>
+                        <input area="text" placeholder="Quick Search 🔎">
+                        <button type="submit">Search</button>
+                    </div>
                 </div>
             </div>
             <div id="projects">
@@ -98,7 +98,7 @@
 
                 <div class="project">
                     <h5>Secure Black Jack</h5>
-                    <img src="../data/Images/other/blackjack.png">
+                    <img src="../data/Images/other/blackjack.png" href="https://github.com/Secure-Black-Jack">
                 </div>
                 
             </div>
@@ -111,7 +111,27 @@
 
 
         <div id="rightPanel" class="panel">
-            <h3>EN</h3>
+            <div id="announcementHeader">
+                <h2>Announcements</h2>
+                <div id="announcements">
+                    <div class="announcement">
+                        <h4>Site Maintenance</h4>
+                        <h6>Various bug fixes will be deployed at 3:30A.M EST. During this time the site will be not accessible. Please plan accordingly. Thank you.</h6>
+                    </div>
+
+                    <div class="announcement">
+                        <h4>Community Share Day</h4>
+                        <h6>Have something that you would like to share? Come join our community discord channel on September 4th to show us what you made! </h6>
+                    </div>
+
+                    <div class="announcement">
+                        <h4>Updated Privacy Policy</h4>
+                        <h6>Due to the recent additions to the General Data Protection Regulation (GDPR), our privacy policy has been updated to be within compliance. Users will need to acknowledge the change to continue using the site. Thank you.</h6>
+                    </div>
+                </div>
+
+
+            </div>
         </div>
     </div>
 </body>

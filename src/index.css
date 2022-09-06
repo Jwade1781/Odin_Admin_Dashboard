@@ -14,7 +14,7 @@
     --accentColor2: rgb(160, 184, 192);
     --accentColor3: rgb(54,55,64);
 
-    --fontLight: white;
+    --fontLight: whitesmoke;
     --fontDark: black;
 
     --smRound: 10px;
@@ -29,7 +29,10 @@
     --roundBorder: var(--medRound);
     --circleBorder: 50%;
 
+    --borderHover: var(--lgBorder) solid var(--mainColor);
+
     --shadowBox1: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    --shadowBox2: --shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 html, body {
@@ -75,7 +78,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;*/
     display: grid;
-    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-columns: 1fr 6fr 2fr;
     gap: var(--xSmPadding);
 }
 
@@ -103,6 +106,12 @@ body {
 
 #pageContent > #leftPanel > div > div > *{
     margin: var(--smPadding);
+}
+
+#pageContent > #leftPanel > div > .active{
+    background-color: rgb(16,181,201);
+    border: 1px solid black;
+    border-radius: 0px 0px 5px 5px;
 }
 
 #pageContent > #leftPanel > div > div > h4 {
@@ -144,6 +153,10 @@ body {
 #pageContent > #middlePanel > #projectHeader > #sort > *{
     padding-left: var(--smPadding);
 }
+#pageContent > #middlePanel > #projectHeader > #sort > *:hover{
+    color: grey;
+    cursor: pointer;
+}
 
 #pageContent > #middlePanel > #projects {
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
@@ -169,9 +182,10 @@ body {
 }
 
 #pageContent > #middlePanel > #projects > .project:hover{
-    border-left: var(--lgBorder) solid var(--mainColor);
+    border-left: var(--borderHover);
     background-color: var(--accentColor1);
     cursor: pointer;
+    box-shadow: var(--shadowBox1);
 }
 
 #pageContent > #middlePanel > #projects > .project > h5 {
@@ -186,8 +200,42 @@ body {
 
 
 #pageContent > #rightPanel {
-    background-color: green;
+    background-color: var(--accentColor2);
 }
+
+#pageContent > #rightPanel > #announcementHeader {
+    display: flex;
+    flex-direction: column;
+}
+
+#pageContent > #rightPanel > #announcementHeader > #announcements {
+    display: flex;
+    flex-direction: column;
+    gap: var(--smPadding);
+}
+
+#pageContent > #rightPanel > #announcementHeader > #announcements > .announcement {
+    background-color: aliceblue;
+    text-align: center;
+    border-radius: var(--roundBorder);
+    padding-top: var(--smPadding);
+    box-shadow: var(--shadowBox1);
+}
+
+#pageContent > #rightPanel > #announcementHeader > #announcements > .announcement:hover {
+    border-left: var(--borderHover);
+    cursor: pointer;
+}
+#pageContent > #rightPanel > #announcementHeader > #announcements > .announcement > * {
+    margin: var(--smPadding);
+}
+
+
+
+
+
+
+
 
 #pageContent > #leftPanel > * > *:hover{
     color: grey;
