@@ -20,14 +20,15 @@
 
     --fontLight: var(--lightColor);
     --fontDark: black;
-
+    
     --smRound: 10px;
-    --medRound: 25px;
-    --lgRound: 50px;
+    --medRound: calc((var(--smRound) * 2));
+    --lgRound: calc((var(--medRound) * 2));
     
     --smBorder: 1px;
-    --medBorder: 2px;
-    --lgBorder: 3px;
+    --medBorder: calc((var(--smBorder) * 2));
+    --lgBorder: calc((var(--medBorder) * 2));
+    --xlgBorder: calc((var(--lgBorder) * 2));
 
     --roundTopBottomRightBorder: 0% var(--medRound) var(--medRound) 0%;
     --roundBorder: var(--medRound);
@@ -53,7 +54,7 @@ body {
 
 #pageHeader {
     height: fit-content;
-    background-color: rgb(22,27,34);
+    background-color: var(--accentColor4);
     position: sticky;
     top: 0;
     z-index: 1;
@@ -72,10 +73,7 @@ body {
     align-items: center;
     gap: var(--smPadding);
 }
-#pageHeader > #middle > img:hover {
-    opacity: .7;
-    cursor: pointer;
-}
+
 #pageHeader > #middle > h2 {
     margin-bottom: 0px;
 }
@@ -85,14 +83,14 @@ body {
 }
 
 .panel {
-    border-radius: var(--roundBorder);
+    /*border-radius: var(--roundBorder);*/
     padding: var(--medPadding);
     height: fit-content;
 }
 
 #pageContent {
     height: fit-content;
-    border-radius: var(--medRound);
+    /*border-radius: var(--medRound);*/
     background-color: var(--accentColor4);
     margin: var(--smPadding);
     padding: var(--smPadding);
@@ -122,10 +120,17 @@ body {
 }
 
 #pageContent > #leftPanel > div > .active{
-    background-color: rgb(16,181,201);
+    background-color: var(--accentColor4);
     border: 1px solid black;
-    border-radius: 0px 0px 5px 5px;
-    color: var(--fontDark);
+    /*border-radius: 0px 0px var(--smRound) var(--smRound);*/
+    color: var(--fontLight);
+}
+
+#pageContent > #leftPanel > div > div:hover{
+    background-color: var(--accentColor4);
+    border: 1px solid black;
+    /*border-radius: 0px 0px var(--smRound) var(--smRound);*/
+    color: var(--fontLight);
 }
 
 #pageContent > #leftPanel > #leftPanelTop {
@@ -150,16 +155,18 @@ body {
 }
 
 #pageContent > #middlePanel > #projectHeader {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: flex-start;
+    padding-bottom: var(--smPadding);
 }
 
+#pageContent > #middlePanel > #projectHeader > h2,
 #pageContent > #middlePanel > #projectHeader > #sort > *{
     padding-left: var(--smPadding);
+    margin: 0;
 }
-#pageContent > #middlePanel > #projectHeader > #sort > *:hover{
-    color: var(--accentColor4);
-    cursor: pointer;
-}
-
 #pageContent > #middlePanel > #projects {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-template-rows: repeat(auto-fit, 1fr);
@@ -182,12 +189,6 @@ body {
     height: auto;
 }
 
-#pageContent > #middlePanel > #projects > .project:hover{
-    cursor: pointer;
-    opacity: 0.97;
-    box-shadow: var(--shadowBox1);
-}
-
 #pageContent > #middlePanel > #projects > .project > h5 {
     padding: var(--smPadding);
     margin: 0px;
@@ -208,42 +209,73 @@ body {
     gap: var(--smPadding);
 }
 
-
 #pageContent > #rightPanel {
     background-color: var(--accentColor3);
-}
-
-#pageContent > #rightPanel > #announcementHeader {
     display: flex;
     flex-direction: column;
+    gap: var(--medPadding);
 }
 
-#pageContent > #rightPanel > #announcementHeader > h2 {
+#rightPanel > div {
+    /*background-color: var(--accentColor3);*/
+}
+
+#pageContent > #rightPanel > * {
+    display: flex;
+    flex-direction: column;
+    gap: var(--smPadding);
+}
+
+#pageContent > #rightPanel > * > h2 {
     margin: var(--smPadding);
     width: 100%;
     border-bottom: var(--medBorder) solid var(--lightColor);
     color: var(--lightColor);
 }
 
-#pageContent > #rightPanel > #announcementHeader > #announcements {
+#pageContent > #rightPanel > * > div {
     display: flex;
     flex-direction: column;
     gap: var(--smPadding);
 }
 
-#pageContent > #rightPanel > #announcementHeader > #announcements > .announcement {
+#pageContent > #rightPanel >  #onlineHeader {
+    padding-top: var(--smPadding);
+}
+
+#pageContent > #rightPanel > * > div > div {
     background-color: aliceblue;
     text-align: center;
     border-radius: var(--roundBorder);
     padding-top: var(--smPadding);
     box-shadow: var(--shadowBox1);
+    width: 100%;
 }
 
-#pageContent > #rightPanel > #announcementHeader > #announcements > .announcement:hover {
+#pageContent > #rightPanel > #onlineHeader > div {
+    margin: 0 10%;
+}
+
+#pageContent > #rightPanel > * > div > .online {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    height: 100%;
+    align-items: flex-end;
+    padding: var(--smPadding);
+    gap: var(--smPadding);
+}
+
+#pageContent > #rightPanel > * > div > .online > * {
+    margin: 0;
+    padding: 0;
+    
+} 
+#pageContent > #rightPanel > * > div > div:hover {
     box-shadow: var(--shadowBox2);
     cursor: pointer;
 }
-#pageContent > #rightPanel > #announcementHeader > #announcements > .announcement > * {
+#pageContent > #rightPanel > * > div > div > * {
     margin: var(--smPadding);
 }
 
@@ -258,10 +290,6 @@ body {
     cursor: pointer;
 }
 
-.icon:hover {
-
-}
-
 .panel > * > * {
     display: flex;
     flex-direction: row;
@@ -273,7 +301,8 @@ body {
 
 .profileImg {
     height: 64px;
-    width: auto;
+    width: 64px;
+    object-fit: none;
     border-radius: var(--circleBorder);
 }
 
@@ -285,6 +314,10 @@ body {
     border: 1px solid rgba(255,255,255,0.3);
 }
 
+.darkHover:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
 
 h1 {
     font-size: clamp(1.6rem, -0.875rem + 2vw, 3rem);
