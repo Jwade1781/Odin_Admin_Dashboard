@@ -1,4 +1,5 @@
 @import url("styleReset.css");
+@import url("animations.css");
 
 :root {
     --xSmPadding:5px;
@@ -6,15 +7,18 @@
     --medPadding: 25px;
     --lgPadding: 50px;
 
-    --mainColor: rgb(126,203,203);
+    /*--mainColor: rgb(126,203,203);*/
+    --mainColor: black;
     
     --lightColor: #f3f3f3;
     --darkColor: #222;
-    --accentColor1: rgb(201,238,234);
-    --accentColor2: rgb(160, 184, 192);
-    --accentColor3: rgb(54,55,64);
 
-    --fontLight: whitesmoke;
+    --accentColor1: rgb(201,238,234);
+    --accentColor2: rgb(85, 85, 85);
+    --accentColor3: rgb(54,55,64);
+    --accentColor4: rgb(22,27,34);
+
+    --fontLight: var(--lightColor);
     --fontDark: black;
 
     --smRound: 10px;
@@ -44,42 +48,40 @@ body {
     height: 100%;
     width: 100%;
     background-color: var(--mainColor);
+    font-family: 'Montserrat', sans-serif;
 }
 
 #pageHeader {
-    height:fit-content;
-    background-color: gray;
+    height: fit-content;
+    background-color: rgb(22,27,34);
+    position: sticky;
+    top: 0;
+    z-index: 1;
     padding: var(--smPadding);
     display: flex;
     flex-direction: row;
     justify-content: center;
-    border-bottom: var(--medBorder) solid green;
+    border-bottom: var(--medBorder) solid rgb(166,166,156);
+    color: rgb(240,242,231);
 }
 
 #pageHeader > #middle {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: var(--medPadding);
+    align-items: center;
+    gap: var(--smPadding);
+}
+#pageHeader > #middle > img:hover {
+    opacity: .7;
+    cursor: pointer;
+}
+#pageHeader > #middle > h2 {
+    margin-bottom: 0px;
 }
 
-#pageHeader > #middle > div, #pageHeader > #middle > h2 {
-    display: flex;
-    flex-direction: row;
-    align-items:flex-end;
-}
-
-#pageContent {
-    height: fit-content;
-    border-radius: var(--medRound);
-    margin: var(--smPadding);
-    padding: var(--smPadding);
-    /*display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;*/
-    display: grid;
-    grid-template-columns: 1fr 6fr 2fr;
-    gap: var(--xSmPadding);
+#pageHeader > #right {
+    align-self: flex-start;
 }
 
 .panel {
@@ -88,13 +90,24 @@ body {
     height: fit-content;
 }
 
+#pageContent {
+    height: fit-content;
+    border-radius: var(--medRound);
+    background-color: var(--accentColor4);
+    margin: var(--smPadding);
+    padding: var(--smPadding);
+    display: grid;
+    grid-template-columns: 2fr 7fr 2fr;
+    gap: var(--xSmPadding);
+}
+
 #pageContent > #leftPanel {
+    position: sticky;
+    top: calc(60px + (2 * var(--smPadding)));
     background-color: var(--accentColor3);
     color: var(--lightColor);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
 }
 
 #pageContent > #leftPanel > div > div {
@@ -112,13 +125,8 @@ body {
     background-color: rgb(16,181,201);
     border: 1px solid black;
     border-radius: 0px 0px 5px 5px;
+    color: var(--fontDark);
 }
-
-#pageContent > #leftPanel > div > div > h4 {
-}
-
-
-
 
 #pageContent > #leftPanel > #leftPanelTop {
     border-bottom: var(--medBorder) solid var(--accentColor1);
@@ -132,34 +140,28 @@ body {
     width: 100%;
 }
 
-
-
-
-
-
-
 #pageContent > #middlePanel {
-    background-color: var(--darkColor);
+    background-color: var(--accentColor2);
     color: var(--fontLight);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
 }
+
 #pageContent > #middlePanel > #projectHeader {
-    margin: 0px;
-    padding: 0px;
 }
+
 #pageContent > #middlePanel > #projectHeader > #sort > *{
     padding-left: var(--smPadding);
 }
 #pageContent > #middlePanel > #projectHeader > #sort > *:hover{
-    color: grey;
+    color: var(--accentColor4);
     cursor: pointer;
 }
 
 #pageContent > #middlePanel > #projects {
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-template-rows: repeat(auto-fit, 1fr);
     display: grid;
     resize: both;
@@ -170,7 +172,6 @@ body {
 #pageContent > #middlePanel > #projects > .project {
     display: flex;
     flex-direction: column;
-    background-color: ;
     border-radius: var(--roundBorder);
     padding: var(--lgPadding);
     color: var(--fontDark);
@@ -182,9 +183,8 @@ body {
 }
 
 #pageContent > #middlePanel > #projects > .project:hover{
-    border-left: var(--borderHover);
-    background-color: var(--accentColor1);
     cursor: pointer;
+    opacity: 0.97;
     box-shadow: var(--shadowBox1);
 }
 
@@ -192,20 +192,37 @@ body {
     padding: var(--smPadding);
     margin: 0px;
 }
+
 #pageContent > #middlePanel > #projects > .project > img{
     width: calc(100% - 2*(var(--smPadding)));
     height: auto;
     margin: var(--smPadding);
 }
 
+#pageContent > #middlePanel > #projects > .project > .projectNav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: var(--smPadding);
+    gap: var(--smPadding);
+}
+
 
 #pageContent > #rightPanel {
-    background-color: var(--accentColor2);
+    background-color: var(--accentColor3);
 }
 
 #pageContent > #rightPanel > #announcementHeader {
     display: flex;
     flex-direction: column;
+}
+
+#pageContent > #rightPanel > #announcementHeader > h2 {
+    margin: var(--smPadding);
+    width: 100%;
+    border-bottom: var(--medBorder) solid var(--lightColor);
+    color: var(--lightColor);
 }
 
 #pageContent > #rightPanel > #announcementHeader > #announcements {
@@ -223,28 +240,26 @@ body {
 }
 
 #pageContent > #rightPanel > #announcementHeader > #announcements > .announcement:hover {
-    border-left: var(--borderHover);
+    box-shadow: var(--shadowBox2);
     cursor: pointer;
 }
 #pageContent > #rightPanel > #announcementHeader > #announcements > .announcement > * {
     margin: var(--smPadding);
 }
 
-
-
-
-
-
-
-
 #pageContent > #leftPanel > * > *:hover{
-    color: grey;
+    color: var(--accentColor4);
     cursor: pointer;
 }
 
 .icon {
     height: clamp(1rem, -0.875rem + 2vw, 2rem);
     width: auto;
+    cursor: pointer;
+}
+
+.icon:hover {
+
 }
 
 .panel > * > * {
@@ -295,3 +310,4 @@ h5 {
 h6 {
     font-size: clamp(0.7rem, -0.875rem + 2vw, 0.9rem);
 }
+
